@@ -1,4 +1,4 @@
-package modelo;
+package cl.diazfabiola.modelo;
 
 public class Cliente {
 

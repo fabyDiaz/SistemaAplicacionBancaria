@@ -1,4 +1,4 @@
-package modelo;
+package cl.diazfabiola.modelo;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

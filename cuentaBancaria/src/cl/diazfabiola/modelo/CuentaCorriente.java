@@ -1,7 +1,6 @@
-package modelo;
+package cl.diazfabiola.modelo;
 
 import java.util.Date;
-import java.util.List;
 
 public class CuentaCorriente extends CuentaBancaria {
 

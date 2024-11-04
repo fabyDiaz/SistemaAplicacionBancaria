@@ -1,6 +1,4 @@
-package modelo;
-
-import java.util.List;
+package cl.diazfabiola.modelo;
 
 public class CuentaAhorro extends CuentaBancaria{
 

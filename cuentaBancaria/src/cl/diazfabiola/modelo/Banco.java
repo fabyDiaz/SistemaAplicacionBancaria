@@ -1,4 +1,4 @@
-package modelo;
+package cl.diazfabiola.modelo;
 
 import java.util.HashMap;
 import java.util.Map;
