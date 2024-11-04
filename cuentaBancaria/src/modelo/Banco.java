@@ -45,8 +45,11 @@ public class Banco {
 
     public void simularTransaccion(String rutOrigen, String rutDestino, int cantidad){
 
-        clientes.get(rutOrigen).getCuentaCorriente().transferir(cantidad);
-        clientes.get(rutDestino).getCuentaCorriente().depositar(cantidad);
+        String cuentaOrigen = clientes.get(rutOrigen).getCuentaCorriente().getNumeroCuenta();
+        String cuentaDeestino = clientes.get(rutDestino).getCuentaCorriente().getNumeroCuenta();
+        clientes.get(rutOrigen).getCuentaCorriente().transferir(cantidad, cuentaDeestino);
+        clientes.get(rutDestino).getCuentaCorriente().depositar(cantidad, cuentaOrigen);
+
 
       /*  mostrarDatosClientes("123-4");
         System.out.println("\n");
@@ -55,8 +58,10 @@ public class Banco {
     }
 
     public void simularSacarDineroCuentaAhorro(String rutOrigen, int cantidad){
-        clientes.get(rutOrigen).getCuentaAhorro().transferir(cantidad);
-        clientes.get(rutOrigen).getCuentaCorriente().depositar(cantidad);
+        String cuentaOrigen = clientes.get(rutOrigen).getCuentaAhorro().getNumeroCuenta();
+        String cuentaDestino = clientes.get(rutOrigen).getCuentaCorriente().getNumeroCuenta();
+        clientes.get(rutOrigen).getCuentaAhorro().transferir(cantidad, cuentaDestino);
+        clientes.get(rutOrigen).getCuentaCorriente().depositar(cantidad, cuentaOrigen);
     }
 
     public void mostrarDatosClientes(){
@@ -65,11 +70,11 @@ public class Banco {
             System.out.println("RUT CLIENTE: " + c.getKey() + "\n" +
                     "NOMBRE CLIENTE: " + c.getValue().getNombre()+ "\n" +
                     "N° CUENTA CORRIENTE: "+ c.getValue().getCuentaCorriente().getNumeroCuenta());
-            c.getValue().getCuentaCorriente().historialDeTrnsacciones();
+            c.getValue().getCuentaCorriente().historialDeTransacciones();
             if(c.getValue().getCuentaAhorro()!=null){
                 System.out.println("=============================");
                 System.out.println( "\nN° CUENTA AHORRO: "+ c.getValue().getCuentaAhorro().getNumeroCuenta());
-                c.getValue().getCuentaAhorro().historialDeTrnsacciones();
+                c.getValue().getCuentaAhorro().historialDeTransacciones();
             }
             System.out.println("\n\n");
         }
@@ -82,11 +87,11 @@ public class Banco {
         System.out.println("RUT CLIENTE: " + cliente.getRut() + "\n" +
                 "NOMBRE CLIENTE: " + cliente.getNombre()+ "\n" +
                 "N° CUENTA CORRIENTE: "+ cliente.getCuentaCorriente().getNumeroCuenta()+ "\n");
-        cliente.getCuentaCorriente().historialDeTrnsacciones();
+        cliente.getCuentaCorriente().historialDeTransacciones();
         if(cliente.getCuentaAhorro()!=null){
             System.out.println("=============================");
             System.out.println( "\nN° CUENTA AHORRO: "+ cliente.getCuentaAhorro().getNumeroCuenta());
-            cliente.getCuentaAhorro().historialDeTrnsacciones();
+            cliente.getCuentaAhorro().historialDeTransacciones();
         }
 
     }

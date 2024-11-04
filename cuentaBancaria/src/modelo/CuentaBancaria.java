@@ -56,17 +56,15 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
         this.saldoCuenta = saldoCuenta;
     }
 
-    public void depositar(int cantidad){
-        Transaccion transaccion = new Transaccion(cantidad, true);
+    public void depositar(int cantidad, String numeroCuenta){
+        Transaccion transaccion = new Transaccion(cantidad, true, numeroCuenta);
         this.saldoCuenta += cantidad;
         this.transacciones.add(transaccion);
     }
-    public void transferir(int cantidad){
-        Transaccion transaccion = new Transaccion(cantidad*-1, false);
+    public void transferir(int cantidad, String numeroCuenta){
+        Transaccion transaccion = new Transaccion(cantidad*-1, false,  numeroCuenta);
         this.saldoCuenta+= cantidad*(-1);
         this.transacciones.add(transaccion);
-
-
     }
 
     public String formatearMoneda(int monto) {
@@ -76,13 +74,13 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
         return montoFormateado;
     }
 
-    public void historialDeTrnsacciones(){
+    public void historialDeTransacciones(){
         // Mostrar la lista de movimientos bancarios
        // System.out.println("------------------------------------------------");
         System.out.println("SALDO ACTUAL: " + formatearMoneda(saldoCuenta));
         //System.out.println("------------------------------------------------");
         System.out.println("Movimientos Bancarios:");
-        System.out.printf("%-20s| %-15s| %-10s\n", "Fecha","Tipo","Monto");
+        System.out.printf("%-20s| %-20s| %-15s| %-10s\n", "Fecha","Cuenta","Tipo","Monto");
         System.out.println("------------------------------------------------");
         for (Transaccion transaccion : transacciones) {
             transaccion.mostrarTransaccion();

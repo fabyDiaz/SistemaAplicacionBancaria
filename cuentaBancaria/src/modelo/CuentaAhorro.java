@@ -18,9 +18,14 @@ public class CuentaAhorro extends CuentaBancaria{
     public void actualizarSaldoMensual() {
     }
 
-    @Override
+   /* @Override
     public void transferir(int cantidad) {
         super.transferir((int)(cantidad-(cantidad*penalizacion)));
+    }*/
+
+    @Override
+    public void transferir(int cantidad, String numeroCuenta) {
+        super.transferir((int)(cantidad-(cantidad*penalizacion)), numeroCuenta);
     }
 
     @Override

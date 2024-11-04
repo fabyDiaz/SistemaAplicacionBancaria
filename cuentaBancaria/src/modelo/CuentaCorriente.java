@@ -22,10 +22,15 @@ public class CuentaCorriente extends CuentaBancaria {
             super.setSaldoCuenta(super.getSaldoCuenta()-costoMantenciónFijo);
         }
     }
+/*
+    @Override
+    public void transferir(int cantidad, String numeroCuenta) {
+        super.transferir((int)(cantidad*1.05));
+    }*/
 
     @Override
-    public void transferir(int cantidad) {
-        super.transferir((int)(cantidad*1.05));
+    public void transferir(int cantidad, String numeroCuenta) {
+        super.transferir((int)(cantidad*1.05), numeroCuenta);
     }
 
     @Override
