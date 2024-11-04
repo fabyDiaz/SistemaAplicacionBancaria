@@ -22,8 +22,19 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
 
     private static int ultimoNumero = 0;
     private int saldoCuenta;
-    private int  numeroCuenta;
+    private String  numeroCuenta;
     private List<Transaccion> transacciones;
+
+    public CuentaBancaria() {
+        this.saldoCuenta = 0;
+        this.numeroCuenta = String.format("%06d", ultimoNumero++);
+        this.transacciones = new ArrayList<>();
+    }
+    public CuentaBancaria(int saldoCuenta) {
+        this.saldoCuenta = saldoCuenta;
+        this.numeroCuenta = String.format("%06d", ultimoNumero++);
+        this.transacciones = new ArrayList<>();
+    }
 
     public static int getUltimoNumero() {
         return ultimoNumero;
@@ -33,7 +44,7 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
         return saldoCuenta;
     }
 
-    public int getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
@@ -41,15 +52,8 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
         return transacciones;
     }
 
-    public CuentaBancaria() {
-        this.saldoCuenta = 0;
-        this.numeroCuenta = ultimoNumero++;
-        this.transacciones = new ArrayList<>();
-    }
-    public CuentaBancaria(int saldoCuenta) {
+    public void setSaldoCuenta(int saldoCuenta) {
         this.saldoCuenta = saldoCuenta;
-        this.numeroCuenta = ultimoNumero++;
-        this.transacciones = new ArrayList<>();
     }
 
     public void depositar(int cantidad){
@@ -74,9 +78,9 @@ cuenta origen como en la cuenta destino) y se actualiza el saldo en cierta canti
 
     public void historialDeTrnsacciones(){
         // Mostrar la lista de movimientos bancarios
-        System.out.println("------------------------------------------------");
+       // System.out.println("------------------------------------------------");
         System.out.println("SALDO ACTUAL: " + formatearMoneda(saldoCuenta));
-        System.out.println("------------------------------------------------");
+        //System.out.println("------------------------------------------------");
         System.out.println("Movimientos Bancarios:");
         System.out.printf("%-20s| %-15s| %-10s\n", "Fecha","Tipo","Monto");
         System.out.println("------------------------------------------------");

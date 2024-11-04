@@ -12,9 +12,12 @@ public class Main {
         Banco banco = new Banco();
         banco.crearCuentas();
         banco.crearClientes();
-        System.out.println(banco.getClientes().get("123-4"));
-        banco.simularTransaccion(0,1, 1000);
-        System.out.println(banco.getCuentas().get(0).getSaldoCuenta());
+       // System.out.println(banco.getClientes().get("123-4"));
+        banco.simularTransaccion("123-4","123-5", 1000);
+        banco.simularSacarDineroCuentaAhorro("123-6",2000);
+        banco.mostrarDatosClientes();
+
+       // System.out.println(banco.getCuentas().get(0).getSaldoCuenta());
 
         //Scanner scanner = new Scanner(System.in);
 

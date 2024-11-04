@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Date;
 import java.util.List;
 
 public class CuentaCorriente extends CuentaBancaria {
@@ -16,7 +17,10 @@ public class CuentaCorriente extends CuentaBancaria {
 
     @Override
     public void actualizarSaldoMensual() {
-
+        Date hoy = new Date();
+        if (hoy.getDate() == 1) {
+            super.setSaldoCuenta(super.getSaldoCuenta()-costoMantenciónFijo);
+        }
     }
 
     @Override
